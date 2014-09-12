@@ -1,9 +1,12 @@
 package fluid2d
 
-import "github.com/btracey/matrix/twod"
+import (
+	"github.com/btracey/fluid"
+	"github.com/btracey/matrix/twod"
+)
 
 // TurbKinVisc predicts the turbulent kinematic viscosity using least squares
-func TurbKinVisc(tau ReynoldsStress, S StrainRate, eps float64) float64 {
+func TurbKinVisc(tau ReynoldsStress, S StrainRate, eps float64) fluid.TurbKinVisc {
 	norm := S.Norm(twod.Frobenius)
 
 	// Both symmetric
